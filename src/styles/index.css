@@ -4,33 +4,264 @@
   margin: 0;
 }
 
-div {
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: Raleway, sans-serif;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+aside {
+  width: 300px;
+  height: 100%;
+  background-color: #214188;
+}
+aside .logo-container {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 30px auto 0px auto;
+}
+aside .active span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+aside nav {
+  margin: 60px auto 0px auto;
+  width: 70%;
+}
+aside nav ul {
+  list-style-type: none;
+}
+aside nav li {
+  margin-bottom: 20px;
+}
+aside nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 19px;
+}
+aside nav a span {
+  position: relative;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.main-section {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 30px 20px 0 20px;
+}
+.main-section p {
+  font-size: 20px;
+}
+
+.signin header {
+  margin-top: 30px;
+}
+.signin header a {
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+.signin header h1 {
+  margin-top: 20px;
+  text-align: center;
+  color: #214188;
+}
+.signin header h1 span {
+  position: relative;
+}
+.signin header h1 span::after {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  content: "";
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0.5);
+  background-color: #214188;
+}
+
+.signin-form-container {
+  margin: 40px auto;
+  width: 50%;
+  position: relative;
+}
+.signin-form-container .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, cornflowerblue, #214188);
+  transform: rotate(-5deg);
+  z-index: -1;
+}
+.signin-form-container form {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: white;
+  border: 2px solid black;
+  padding: 40px 0;
+  position: relative;
+}
+.signin-form-container form small {
+  color: red;
+}
+
+.input-field-container {
+  margin: 20px auto 0px auto;
+  width: 80%;
+}
+.input-field-container .input-field {
+  height: 25px;
+  width: 100%;
+  border-bottom: 2px solid black;
+  position: relative;
+}
+.input-field-container .input-field input {
+  height: 100%;
+  width: 100%;
+  font-size: 12pt;
+  border: none;
+  outline: none;
+}
+.input-field-container .input-field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 12pt;
+  transition: transform 0.35s ease-out, font-size 0.15s linear;
+}
+.input-field-container .input-field .label-top {
+  transform: translateY(-12.5px);
+  font-size: 9pt;
+}
+.input-field-container .submit {
+  margin-top: 15px;
+  height: 45px;
+  width: 100%;
+  border-bottom: none;
+  position: relative;
+}
+.input-field-container .submit input {
+  background-color: #214188;
+  color: white;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  font-size: 12pt;
+  border: none;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+.input-field-container .submit input:hover {
+  opacity: 0.8;
+}
+.input-field-container .submit-loading {
+  margin-top: 15px;
+  height: 45px;
+  width: 100%;
+  background-color: #214188;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+.input-field-container .submit-loading .spinner {
+  width: 25px;
+  height: 25px;
+  border: 3px solid white;
+  border-top-color: rgba(33, 65, 136, 0.8);
+  border-radius: 50%;
+  clip-path: polygon(10px, 0, 0, 0);
+  animation-name: spinner;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.select-field-container {
+  margin: 10px auto 0px auto;
+  width: 80%;
+}
+.select-field-container .select-field {
+  height: 25px;
+  width: 100%;
+  position: relative;
+}
+.select-field-container .select-field select {
+  outline: 2px solid black;
+  height: 100%;
+  width: 100%;
+  font-size: 12pt;
+  border: none;
+}
+
+.form-protection {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
-div .div1 {
+.menu .div1 {
   height: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-div img {
+.menu img {
   height: 80%;
   width: 10%;
 }
-div h1 {
+.menu h1 {
   font-size: 20px;
   font-family: sans-serif;
-  color: blue;
+  color: #214188;
 }
-div hr {
+.menu hr {
   width: 8%;
   height: 2%;
-  background-color: blue;
+  background-color: #214188;
 }
-div .div2 {
+.menu .div2 {
   height: 80%;
   padding: 4%;
   display: flex;
@@ -39,15 +270,17 @@ div .div2 {
   position: relative;
   z-index: 1;
 }
-div .div2 .div01 {
+.menu .div2 .div01 {
   height: 85%;
   width: 60%;
   background-color: blue;
   transform: rotate(-4deg);
+  background-color: #214188;
+  transform: rotate(-3deg);
   border-radius: 2em;
   position: absolute;
 }
-div .div2 .div02 {
+.menu .div2 .div02 {
   height: 85%;
   width: 60%;
   background-color: white;
@@ -60,26 +293,26 @@ div .div2 .div02 {
   align-items: center;
   position: absolute;
 }
-div .div2 .div02 h2 {
+.menu .div2 .div02 h2 {
   text-align: center;
   font-family: sans-serif;
   font-size: 30px;
-  color: blue;
+  color: #214188;
 }
-div .div2 .div02 input {
+.menu .div2 .div02 input {
   border: none;
   border-bottom: 2px solid gray;
   height: 10%;
   width: 60%;
 }
-div .div2 .div02 input a {
+.menu .div2 .div02 input a {
   padding-left: 50%;
 }
-div .div2 .div02 button {
+.menu .div2 .div02 button {
   border-radius: 0.5em;
   width: 60%;
   height: 20%;
-  background-color: blue;
+  background-color: #214188;
   border: none;
   color: white;
   font-size: 20px;
