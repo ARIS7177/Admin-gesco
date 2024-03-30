@@ -1,6 +1,6 @@
  export default function LoginPage() {
   return (
-    <div>
+    <div className="menu">
       <div className="div1">
         <img src="/logo/favicon.png" alt="logo" />
         <h1>ACCEDER A VOTRE COMPTE</h1>
