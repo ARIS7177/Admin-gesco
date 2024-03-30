@@ -235,4 +235,85 @@ aside nav a span {
   height: 100%;
 }
 
+div {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+div .div1 {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div img {
+  height: 80%;
+  width: 10%;
+}
+div h1 {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #214188;
+}
+div hr {
+  width: 8%;
+  height: 2%;
+  background-color: #214188;
+}
+div .div2 {
+  height: 80%;
+  padding: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+div .div2 .div01 {
+  height: 85%;
+  width: 60%;
+  background-color: #214188;
+  transform: rotate(-3deg);
+  border-radius: 2em;
+  position: absolute;
+}
+div .div2 .div02 {
+  height: 90%;
+  width: 60%;
+  background-color: white;
+  border-radius: 2em;
+  padding: 2%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  align-items: center;
+  position: absolute;
+}
+div .div2 .div02 h2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 30px;
+  color: #214188;
+}
+div .div2 .div02 input {
+  border: none;
+  border-bottom: 2px solid gray;
+  height: 10%;
+  width: 60%;
+}
+div .div2 .div02 input a {
+  padding-left: 50%;
+}
+div .div2 .div02 button {
+  border-radius: 0.5em;
+  width: 60%;
+  height: 20%;
+  background-color: #214188;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
 /*# sourceMappingURL=index.css.map */
