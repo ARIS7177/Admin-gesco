@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function SignInHeader () {
+export default function FormHeader ({title} : {title: string}) {
   return (
     <header>
       <Link to={'/'}>
@@ -8,7 +8,7 @@ export default function SignInHeader () {
       </Link>
 
       <h1>
-        <span>Créer un compte administrateur</span>
+        <span>{ title }</span>
       </h1>
     </header>
   )
