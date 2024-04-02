@@ -6,6 +6,10 @@ import AuthGuard from "../components/Auth/AuthGuard";
 import RegistrationPage from "../pages/registration/RegistrationPage";
 import PreRegistrationPage from "../pages/pre_registration/PreRegistrationPage";
 import SignInPage from "../pages/signin/SignIn_page";
+import Logout from "../components/Logout/Logout";
+import IsLogin from "../components/Auth/IsLogin";
+import UsersPage from "../pages/users/Users_page";
+import SuperAdminGuard from "../components/SuperAdmin/SuperAdminGuard";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +22,11 @@ export const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <LoginPage />
+    element: <IsLogin> <LoginPage /> </IsLogin> 
+  },
+  {
+    path: '/logout',
+    element: <Logout />
   },
   {
     path: '/dashboard',
@@ -35,6 +43,10 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard/registration',
     element:  <AuthGuard><RegistrationPage /></AuthGuard>
+  },
+  {
+    path: '/dashboard/users',
+    element:  <AuthGuard> <SuperAdminGuard> <UsersPage /> </SuperAdminGuard> </AuthGuard>
   },
   {
     path: '*',

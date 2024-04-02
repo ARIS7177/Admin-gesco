@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
-import InputField from "./formComponents/InputField";
-import SelectField from "./formComponents/SelectField";
+import InputField from "../../../components/Form/FormComponents/InputField";
+import SelectField from "../../../components/Form/FormComponents/SelectField"; 
+import { Admin } from './../../../services/Admin';
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function SignInForm () {
   const [formDatas, setFormDatas] = useState({
@@ -30,7 +32,9 @@ export default function SignInForm () {
     },
   ]
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const navigate = useNavigate() ;
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault() ;
 
     // Si le formulaire a déjà été soumit (Evite les doublons)
@@ -66,12 +70,42 @@ export default function SignInForm () {
     setIsLoading(true)
     setAllowSubmit(false)
     
-    console.log(user);
-    
-    setTimeout(() => {
+    const base = 'http://localhost:3333/' ;
+    const options: RequestInit = {
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      method: 'post',
+      body: JSON.stringify(user),
+    }
+
+    let response, datas: any = false  ;
+
+    try {
+      response = await fetch(base + 'api/signin', options) ;
+      datas = await response.json() ;
+
+      const { status }  = datas ;
+
+      if(status == 200) {
+        const {value, user} = datas ;
+
+        Admin.authenticate(value , user) ;
+        navigate('/dashboard') ;
+      } else {
+        const { message } = datas 
+
+        alert(message)
+      }
+      
+    } catch (e) {
+      console.log(e);
+      
+    } finally {
       setIsLoading(false)
       setAllowSubmit(true)
-    }, 2500);
+
+    }
     
   }
 
@@ -114,7 +148,7 @@ export default function SignInForm () {
         />
       <InputField 
         type="password" 
-        label="Confrimer Mot de passe" 
+        label="Confirmer Mot de passe" 
         error="Veuillez confirmer le mot de passe"
         formDatas={formDatas}
         setFormDatas={setFormDatas}
@@ -135,6 +169,9 @@ export default function SignInForm () {
       />
 
       <InputField type="submit" label="S'inscrire" isLoading={isLoading} />
+      <div className="no-account">
+        <span>Déjà membre ? </span> <Link to={'/'}> Connectez-vous.</Link>
+      </div>
     </form>
   )
 }
