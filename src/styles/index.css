@@ -330,4 +330,51 @@ aside nav a span {
   border: none;
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table td, .table th {
+  padding: 10px 0px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+.add {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: end;
+}
+.add span {
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #214188;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.add span:hover {
+  background-color: rgba(33, 65, 136, 0.8);
+}
+.add a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.add-form-container {
+  width: 50%;
+  border: 2px solid black;
+  margin: 10px auto;
+  padding-bottom: 30px;
+}
+.add-form-container form {
+  width: 100%;
+}
+.add-form-container form small {
+  color: red;
+}
+
 /*# sourceMappingURL=index.css.map */

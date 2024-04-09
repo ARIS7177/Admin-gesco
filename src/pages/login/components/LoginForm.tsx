@@ -35,7 +35,8 @@ export default function LoginForm() {
     setIsLoading(true)
     setAllowSubmit(false)
     
-    const base = 'http://localhost:3333/api' ;
+    // const base = 'http://localhost:3333/api' ;
+    const base = 'http://localhost:63829/api' ;
     const options: RequestInit = {
       method: 'post',
       body: JSON.stringify(user),
@@ -50,19 +51,17 @@ export default function LoginForm() {
       response = await fetch(base + '/login', options) ;
       datas = await response.json() ;
 
-      const { value, user, status }  = datas ;
-
-      console.log(datas);
+      const { status }  = datas ;
       
-      if(+status == 400) {
-        return 
-      }
-
-      Admin.authenticate(value , user) ;
-
-      if(+status) {
+      if(status == 200) {
+        const {token, user} = datas ;
+  
+        Admin.authenticate(token , user) ;
+  
         navigate('/dashboard') ;
+        
       }
+
       
     } catch (e) {
       console.log(e);

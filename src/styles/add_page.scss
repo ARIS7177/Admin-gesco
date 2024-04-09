@@ -1,0 +1,14 @@
+.add-form-container {
+  width: 50%;
+  border: 2px solid black;
+  margin: 10px auto;
+  padding-bottom: 30px;
+
+  form {
+    width: 100%;
+
+    small {
+      color: red;
+    }
+  }
+}

@@ -10,11 +10,24 @@ import Logout from "../components/Logout/Logout";
 import IsLogin from "../components/Auth/IsLogin";
 import UsersPage from "../pages/users/Users_page";
 import SuperAdminGuard from "../components/SuperAdmin/SuperAdminGuard";
+import ClassroomPage from "../pages/classroom/Classroom_page";
+import RegistrationFeePage from "../pages/registration_fee/Registration_fee_page";
+import TutorPage from "../pages/tutor/Tutor_page";
+import AddUserPage from "../pages/users/AddUser_page";
+import AddClassroomPage from "../pages/classroom/AddClassroom_page";
+import AddRegistrationFeePage from "../pages/registration_fee/AddRegistration_fee_page";
+import AddTutorPage from "../pages/tutor/AddTutor_page";
+import AcademicYearPage from "../pages/academic_year/AcademicYear_page";
+import AddAcademicYearPage from "../pages/academic_year/AddAcademicYear_page";
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigate to={'/login'} />
+  },
+  {
+    path: '/dashboard',
+    element: <Navigate to={'/dashboard/home'}/>
   },
   {
     path: '/signin',
@@ -27,10 +40,6 @@ export const router = createBrowserRouter([
   {
     path: '/logout',
     element: <Logout />
-  },
-  {
-    path: '/dashboard',
-    element: <Navigate to={'/dashboard/home'}/>
   },
   {
     path: '/dashboard/home',
@@ -47,6 +56,42 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard/users',
     element:  <AuthGuard> <SuperAdminGuard> <UsersPage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/users/add',
+    element:  <AuthGuard> <SuperAdminGuard> <AddUserPage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/classroom',
+    element:  <AuthGuard> <SuperAdminGuard> <ClassroomPage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/classroom/add',
+    element:  <AuthGuard> <SuperAdminGuard> <AddClassroomPage/> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/academic_year',
+    element:  <AuthGuard> <SuperAdminGuard> <AcademicYearPage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/academic_year/add',
+    element:  <AuthGuard> <SuperAdminGuard> <AddAcademicYearPage/> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/registration_fee',
+    element:  <AuthGuard> <SuperAdminGuard> <RegistrationFeePage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/registration_fee/add',
+    element:  <AuthGuard> <SuperAdminGuard> <AddRegistrationFeePage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/tutor',
+    element:  <AuthGuard> <SuperAdminGuard> <TutorPage /> </SuperAdminGuard> </AuthGuard>
+  },
+  {
+    path: '/dashboard/tutor/add',
+    element:  <AuthGuard> <SuperAdminGuard> <AddTutorPage /> </SuperAdminGuard> </AuthGuard>
   },
   {
     path: '*',

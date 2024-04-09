@@ -3,12 +3,13 @@ import LeftBar from "../LeftBar/LeftBar";
 import { MainProps } from "./MainProps";
 import { Link } from "react-router-dom";
 import { UserContext } from "../Auth/context/UserContext";
+import { User } from "../../services/Admin";
 
 export default function MainSection({pageTitle, children}: MainProps) {
   const [aboutIsVisible, setAboutIsVisible] = useState(false) ;
   const [logoutIsVisible, setLogoutIsVisible] = useState(false)
 
-  const admin: any = useContext(UserContext) ;
+  const admin: User = useContext(UserContext)! ;
 
   document.body.onclick = (e: any) => {
     if(e.target.closest('.admin-info')) {
@@ -93,6 +94,7 @@ export default function MainSection({pageTitle, children}: MainProps) {
         <h1>
           <span>{ pageTitle }</span>
         </h1>
+        { children }
       </section>
     </main>
   )
